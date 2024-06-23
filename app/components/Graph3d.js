@@ -14,11 +14,11 @@ export default function Graph3D() {
     const loadPlotly = async () => {
       const Plotly = await import('plotly.js-dist-min');
 
-      // Generate data for a quadratic surface
-      const size = 30;
+      // Generate data for the surface plot
+      const size = 50;
       const x = Array.from({ length: size }, (_, i) => (i - size / 2) / 5);
       const y = Array.from({ length: size }, (_, i) => (i - size / 2) / 5);
-      const z = x.map(xVal => y.map(yVal => xVal ** 2 + yVal ** 2));
+      const z = x.map(xVal => y.map(yVal => Math.sin(xVal) * Math.cos(yVal)));
 
       const data = [{
         z: z,
@@ -33,9 +33,9 @@ export default function Graph3D() {
         autosize: true,
         scene: {
           aspectmode: 'cube',
-          xaxis: { visible: false },
-          yaxis: { visible: false },
-          zaxis: { visible: false }
+          xaxis: { visible: false, showgrid: false, zeroline: false, showline: false, showticklabels: false },
+          yaxis: { visible: false, showgrid: false, zeroline: false, showline: false, showticklabels: false },
+          zaxis: { visible: false, showgrid: false, zeroline: false, showline: false, showticklabels: false }
         },
         paper_bgcolor: 'rgba(0,0,0,0)', // Transparent background
         plot_bgcolor: 'rgba(0,0,0,0)', // Transparent background
