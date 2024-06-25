@@ -82,3 +82,21 @@
     background: #000; /* Set a background color to avoid white space */
   }
 }
+
+@media (max-width: 768px) {
+  .card-container {
+    padding: 1rem;
+  }
+  .topic-container {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .card-container {
+    padding: 2rem;
+  }
+  .topic-container {
+    margin-bottom: 1.5rem;
+  }
+}

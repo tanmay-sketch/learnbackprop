@@ -39,7 +39,7 @@ export default function Navbar() {
         </button>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 right-0 w-full bg-black bg-opacity-75 text-white z-30">
+        <div className={`md:hidden absolute top-16 right-0 w-full text-white z-30 transition-colors duration-300 ${isScrolled ? 'bg-gray-900 bg-opacity-90' : 'bg-black bg-opacity-75'}`}>
           <a href="#home" className="block px-4 py-2 hover:bg-gray-800 transition-colors duration-300">Home</a>
           <a href="#chapters" className="block px-4 py-2 hover:bg-gray-800 transition-colors duration-300">Chapters</a>
         </div>
