@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "chapterTitle": "History of Backpropagation",
+    "chapterDescription": "This chapter is an introduction to the evolution of backpropagation over the years.",
+    "topics": [
+      { "title": "Early Developments", "description": "Understanding the early developments in backpropagation." },
+      { "title": "Major Milestones", "description": "Learn about the major milestones in backpropagation." },
+      { "title": "Recent Advances", "description": "Explore the recent advances in backpropagation." }
+    ]
+  },
+  {
+    "id": 2,
+    "chapterTitle": "Linear Algebra",
+    "chapterDescription": "This chapter covers all the linear algebra concepts needed for backpropagation.",
+    "topics": [
+      { "title": "Vectors and Matrices", "description": "Introduction to vectors and matrices." },
+      { "title": "Eigenvalues and Eigenvectors", "description": "Learn about eigenvalues and eigenvectors." },
+      { "title": "Matrix Multiplication", "description": "Explore matrix multiplication techniques." }
+    ]
+  },
+  {
+    "id": 3,
+    "chapterTitle": "Neural Networks",
+    "chapterDescription": "This chapter gives a brief introduction of neural networks.",
+    "topics": [
+      { "title": "Perceptrons", "description": "Understanding perceptrons and their role in neural networks." },
+      { "title": "Activation Functions", "description": "Learn about different activation functions used in neural networks." },
+      { "title": "Network Architectures", "description": "Explore various neural network architectures." }
+    ]
+  }
+]

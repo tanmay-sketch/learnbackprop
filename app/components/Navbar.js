@@ -25,7 +25,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`w-full p-4 flex justify-between items-center transition-colors duration-300 ${isScrolled ? 'bg-black bg-opacity-75' : 'bg-transparent'}`}>
+    <nav className={`w-full p-4 flex justify-between items-center transition-colors duration-300 fixed top-0 left-0 z-20 ${isScrolled ? 'bg-gray-900 bg-opacity-90' : 'bg-transparent'}`}>
       <div className="text-2xl font-bold pl-6 hover:text-gray-400 transition-colors duration-300">learnbackprop</div>
       <div className="hidden md:flex space-x-8 pr-6">
         <a href="#home" className="hover:text-gray-400 transition-colors duration-300">Home</a>
@@ -39,11 +39,9 @@ export default function Navbar() {
         </button>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 right-0 w-full bg-black bg-opacity-75 text-white">
+        <div className="md:hidden absolute top-16 right-0 w-full bg-black bg-opacity-75 text-white z-30">
           <a href="#home" className="block px-4 py-2 hover:bg-gray-800 transition-colors duration-300">Home</a>
-          <a href="#about" className="block px-4 py-2 hover:bg-gray-800 transition-colors duration-300">About</a>
-          <a href="#features" className="block px-4 py-2 hover:bg-gray-800 transition-colors duration-300">Features</a>
-          <a href="#contact" className="block px-4 py-2 hover:bg-gray-800 transition-colors duration-300">Contact</a>
+          <a href="#chapters" className="block px-4 py-2 hover:bg-gray-800 transition-colors duration-300">Chapters</a>
         </div>
       )}
     </nav>

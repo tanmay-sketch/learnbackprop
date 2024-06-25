@@ -18,14 +18,14 @@ export default function Graph3D() {
       const size = 50;
       const x = Array.from({ length: size }, (_, i) => (i - size / 2) / 5);
       const y = Array.from({ length: size }, (_, i) => (i - size / 2) / 5);
-      const z = x.map(xVal => y.map(yVal => Math.sin(xVal) * Math.cos(yVal)));
+      const z = x.map(xVal => y.map(yVal => xVal ** 2 - yVal ** 2));
 
       const data = [{
         z: z,
         x: x,
         y: y,
         type: 'surface',
-        colorscale: 'Viridis',
+        colorscale: 'YlGnBu',
         showscale: false // Hide the color scale
       }];
 
@@ -49,19 +49,20 @@ export default function Graph3D() {
       Plotly.newPlot(plotDiv, data, layout, config);
 
       const handleResize = () => {
-        Plotly.Plots.resize(plotDiv);
+        if (plotDiv && plotDiv.offsetParent !== null) {
+          Plotly.Plots.resize(plotDiv);
+        }
       };
 
       window.addEventListener('resize', handleResize);
 
       return () => {
         window.removeEventListener('resize', handleResize);
-        Plotly.purge(plotDiv);
       };
     };
 
     loadPlotly();
   }, []);
 
-  return <div ref={plotRef} className="w-full h-[600px] flex items-center justify-center" />;
+  return <div ref={plotRef} className="w-full h-[600px] flex items-center justify-center z-10" />;
 }
