@@ -1,27 +1,50 @@
-import Head from 'next/head';
+"use client"
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Graph3D from './components/Graph3d';
 import CustomCarousel from './components/CustomCarousel';
+import Footer from './components/Footer';
 
 export default function Home() {
+  useEffect(() => {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            window.history.pushState({}, '', `#${id}`);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white font-sans overflow-hidden">
-      <Head>
-        <title>learnbackprop</title>
-        <meta name="description" content="Learn backpropagation step by step" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Navbar />
-      <div id="home" className="relative flex flex-col md:flex-row items-center justify-between min-h-screen px-4 md:px-12">
+      <section id="home" className="relative flex flex-col md:flex-row items-center justify-between min-h-screen px-4 md:px-12">
         <Hero />
         <div className="w-full md:w-1/2 h-[600px] flex items-center justify-center md:static absolute inset-0 z-10">
           <Graph3D />
         </div>
-      </div>
-      <div id="chapters" className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-t from-black via-gray-900 to-blue">
+      </section>
+      <section id="chapters" className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-t from-black via-gray-900 to-blue">
         <CustomCarousel />
-      </div>
+      </section>
+      <Footer />
     </div>
   );
 }
