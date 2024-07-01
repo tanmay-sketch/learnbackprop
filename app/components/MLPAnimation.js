@@ -33,9 +33,10 @@ const MLPAnimation = () => {
             .attr("x2", (layerIndex + 1) * layerDistance + 150)
             .attr("y2", yOffsetCurrent + j * (2 * neuronRadius + 50) + neuronRadius)
             .attr("stroke", "white")
-            .attr("stroke-width", 2);
+            .attr("stroke-width", 2)
+            .attr("stroke-linecap", "round");
 
-          connections.push(connection);
+          connections.push({ connection, toLayer: layerIndex + 1, toNeuron: j });
         }
       }
     });
@@ -52,58 +53,82 @@ const MLPAnimation = () => {
           .attr("r", neuronRadius + 2)  // Larger background circle to cover lines
           .attr("fill", "#C4B5FD")  // Light purple color
           .attr("stroke", "white")
-          .attr("stroke-width", 1);
+          .attr("stroke-width", 2)
+          .attr("filter", "url(#drop-shadow)");
 
         neurons.push(neuron);
       }
     });
 
+    // Add drop shadow filter for a vectorized look
+    svg.append("defs")
+      .append("filter")
+      .attr("id", "drop-shadow")
+      .append("feGaussianBlur")
+      .attr("in", "SourceAlpha")
+      .attr("stdDeviation", 2)
+      .attr("result", "blur");
+
+    svg.select("filter")
+      .append("feOffset")
+      .attr("in", "blur")
+      .attr("dx", 2)
+      .attr("dy", 2)
+      .attr("result", "offsetBlur");
+
+    svg.select("filter")
+      .append("feMerge")
+      .append("feMergeNode")
+      .attr("in", "offsetBlur");
+
+    svg.select("filter feMerge")
+      .append("feMergeNode")
+      .attr("in", "SourceGraphic");
+
     // Animate the forward and backward pass
     const animate = () => {
       let forwardIndex = 0;
       let backwardIndex = connections.length - 1;
+      const transitionDuration = 200; // Reduced duration for faster animation
 
       const forwardPass = () => {
         if (forwardIndex < connections.length) {
-          const connection = connections[forwardIndex];
+          const { connection, toLayer, toNeuron } = connections[forwardIndex];
           connection
             .transition()
-            .duration(500)
+            .duration(transitionDuration)
             .attr("stroke", "orange")
             .transition()
-            .duration(500)
+            .duration(transitionDuration)
             .attr("stroke", "white")
             .on("end", forwardPass);
 
-          const toLayerIndex = Math.floor((forwardIndex % layers.slice(1).reduce((a, b) => a + b)) / layers[forwardIndex % layers.length]);
-          const toNeuronIndex = forwardIndex % layers[toLayerIndex];
-
-          if (toLayerIndex === 1 || toLayerIndex === 2) {
-            const toNeuronTotalIndex = toNeuronIndex + layers.slice(0, toLayerIndex).reduce((a, b) => a + b, 0);
-            neurons[toNeuronTotalIndex]
+          if (toLayer === 1 || toLayer === 2) {
+            const neuronIndex = toNeuron + layers.slice(0, toLayer).reduce((acc, curr) => acc + curr, 0);
+            neurons[neuronIndex]
               .transition()
-              .duration(500)
+              .duration(transitionDuration)
               .attr("fill", "#7C3AED")
               .transition()
-              .duration(500)
+              .duration(transitionDuration)
               .attr("fill", "#C4B5FD");
           }
 
           forwardIndex++;
         } else {
-          backwardPass();
+          setTimeout(backwardPass, 1000); // Pause before starting backward pass
         }
       };
 
       const backwardPass = () => {
         if (backwardIndex >= 0) {
-          const connection = connections[backwardIndex];
+          const { connection } = connections[backwardIndex];
           connection
             .transition()
-            .duration(500)
-            .attr("stroke", "orange")
+            .duration(transitionDuration)
+            .attr("stroke", "blue")
             .transition()
-            .duration(500)
+            .duration(transitionDuration)
             .attr("stroke", "white")
             .on("end", backwardPass);
 
