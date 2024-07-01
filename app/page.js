@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Graph3D from './components/Graph3d';
 import CustomCarousel from './components/CustomCarousel';
 import Footer from './components/Footer';
+import MLPAnimation from './components/MLPAnimation';  // Import the MLP animation component
 
 export default function Home() {
   useEffect(() => {
@@ -37,8 +37,8 @@ export default function Home() {
       <Navbar />
       <section id="home" className="relative flex flex-col md:flex-row items-center justify-between min-h-screen px-4 md:px-12">
         <Hero />
-        <div className="w-full md:w-1/2 h-[600px] flex items-center justify-center md:static absolute inset-0 z-10">
-          <Graph3D />
+        <div className="w-full md:w-1/2 h-[800px] flex items-center justify-center md:static absolute inset-0 z-10">
+          <MLPAnimation />
         </div>
       </section>
       <section id="chapters" className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-t from-black via-gray-900 to-blue">

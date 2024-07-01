@@ -4,9 +4,9 @@
     "chapterTitle": "History of Backpropagation",
     "chapterDescription": "This chapter is an introduction to the evolution of backpropagation over the years.",
     "topics": [
-      { "title": "Early Developments", "description": "Understanding the early developments in backpropagation." },
-      { "title": "Major Milestones", "description": "Learn about the major milestones in backpropagation." },
-      { "title": "Recent Advances", "description": "Explore the recent advances in backpropagation." }
+      { "title": "Early Developments", "description": "Understanding the early developments in backpropagation.", "image": "icons/development.png" },
+      { "title": "Major Milestones", "description": "Learn about the major milestones in backpropagation.", "image": "icons/milestone.png" },
+      { "title": "Recent Advances", "description": "Explore the recent advances in backpropagation.", "image": "icons/advance.png" }
     ]
   },
   {
@@ -14,9 +14,9 @@
     "chapterTitle": "Linear Algebra",
     "chapterDescription": "This chapter covers all the linear algebra concepts needed for backpropagation.",
     "topics": [
-      { "title": "Vectors and Matrices", "description": "Introduction to vectors and matrices" },
-      { "title": "Dot Product", "description": "Understand dot product and its applications" },
-      { "title": "Matrix Multiplication", "description": "Explore matrix multiplication techniques" }
+      { "title": "Vectors and Matrices", "description": "Introduction to vectors and matrices", "image": "icons/vector.png" },
+      { "title": "Dot Product", "description": "Understand dot product and its applications", "image": "icons/domino.png" },
+      { "title": "Matrix Multiplication", "description": "Explore matrix multiplication techniques", "image": "icons/matrix.png" }
     ]
   },
   {
@@ -24,9 +24,9 @@
     "chapterTitle": "Calculus",
     "chapterDescription": "This chapter covers all the calculus concepts needed for backpropagation.",
     "topics": [
-      { "title": "Derivatives", "description": "Understanding derivatives and its intuition" },
-      { "title": "Chain Rule", "description": "Derivative of a composite function" },
-      { "title": "Partial Derivatives", "description": "Slight variation of derivatives" }
+      { "title": "Derivatives", "description": "Understanding derivatives and its intuition", "image": "icons/slope.png" },
+      { "title": "Chain Rule", "description": "Derivative of a composite function", "image": "icons/chain.png" },
+      { "title": "Partial Derivatives", "description": "Slight variation of derivatives", "image": "icons/math.png" }
     ]
   },
   {
@@ -34,9 +34,9 @@
     "chapterTitle": "Neural Networks",
     "chapterDescription": "This chapter gives a brief introduction of neural networks.",
     "topics": [
-      { "title": "Perceptrons", "description": "Perceptrons and their role in neural networks." },
-      { "title": "Activation Functions", "description": "What are activation functions?" },
-      { "title": "Network Architectures", "description": "Explore various neural network architectures." }
+      { "title": "Perceptrons", "description": "Perceptrons and their role in neural networks.", "image": "icons/neuron.png" },
+      { "title": "Activation Functions", "description": "What are activation functions?", "image": "icons/fx-sign.png" },
+      { "title": "Network Architectures", "description": "Explore various neural network architectures.", "image": "icons/neural-network.png" }
     ]
   },
   {
@@ -44,9 +44,9 @@
     "chapterTitle": "Computational Graphs",
     "chapterDescription": "This chapter explains the concept of computational graphs.",
     "topics": [
-      { "title": "Graph Basics", "description": "Understanding the basics of computational graphs." },
-      { "title": "Graph Structures", "description": "Exploring different structures in computational graphs." },
-      { "title": "Gradient Calculation", "description": "How do computers compute gradients?" }
+      { "title": "Graph Basics", "description": "Understanding the basics of computational graphs.", "image": "icons/structure.png" },
+      { "title": "Graph Structures", "description": "Exploring different structures in computational graphs.", "image": "icons/machine-learning.png" },
+      { "title": "Gradient Calculation", "description": "How do computers compute gradients?", "image": "icons/weight-scale.png" }
     ]
   },
   {
@@ -54,9 +54,9 @@
     "chapterTitle": "Automatic Differentiation",
     "chapterDescription": "This chapter covers the concept of automatic differentiation.",
     "topics": [
-      { "title": "Forward Mode", "description": "Understanding forward mode automatic differentiation." },
-      { "title": "Reverse Mode", "description": "Exploring reverse mode automatic differentiation." },
-      { "title": "Applications", "description": "Learn how automatic differentiation is applied." }
+      { "title": "Forward Mode", "description": "Understanding forward mode automatic differentiation.", "image": "icons/fast-forward.png" },
+      { "title": "Reverse Mode", "description": "Exploring reverse mode automatic differentiation.", "image": "icons/fast-reverse.png" },
+      { "title": "Applications", "description": "Learn how automatic differentiation is applied.", "image": "icons/application.png" }
     ]
   },
   {
@@ -64,9 +64,9 @@
     "chapterTitle": "Gradient Descent",
     "chapterDescription": "This chapter covers the gradient descent optimization algorithm.",
     "topics": [
-      { "title": "Basic Concept", "description": "Understanding the basic concept of gradient descent." },
-      { "title": "Variants", "description": "Exploring different variants of gradient descent." },
-      { "title": "Applications", "description": "Learn how gradient descent is applied in optimization." }
+      { "title": "Basic Concept", "description": "Understanding the basic concept of gradient descent.", "image": "icons/concept.png" },
+      { "title": "Variants", "description": "Exploring different variants of gradient descent.", "image": "icons/variants.png" },
+      { "title": "Applications", "description": "Learn how gradient descent is applied in optimization.", "image": "icons/application.png" }
     ]
   },
   {
@@ -74,9 +74,9 @@
     "chapterTitle": "Backpropagation",
     "chapterDescription": "This chapter covers the backpropagation algorithm in detail.",
     "topics": [
-      { "title": "Forward Pass", "description": "Understanding the forward pass in backpropagation." },
-      { "title": "Backward Pass", "description": "Exploring the backward pass in backpropagation." },
-      { "title": "Gradient Descent", "description": "Learn how to compute gradients using backpropagation." }
+      { "title": "Forward Pass", "description": "Understanding the forward pass in backpropagation.", "image": "icons/forwardpass.png" },
+      { "title": "Backward Pass", "description": "Exploring the backward pass in backpropagation.", "image": "icons/backwardpass.png" },
+      { "title": "Gradient Descent", "description": "Learn how to compute gradients using backpropagation.", "image": "icons/gdescent.png" }
     ]
   }
 ]

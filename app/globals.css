@@ -52,7 +52,7 @@
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
@@ -99,4 +99,27 @@
   .topic-container {
     margin-bottom: 1.5rem;
   }
+}
+
+.icon-container {
+  background-color: #1a1a1a; /* Dark background color */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container img {
+  width: 48px; /* Adjust width as needed */
+  height: 48px; /* Adjust height as needed */
+}
+
+/* global.css or the appropriate CSS file */
+#mlp-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
 }

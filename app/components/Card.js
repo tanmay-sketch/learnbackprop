@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Card = ({ chapterNumber, chapterTitle, chapterDescription, topics }) => {
   return (
@@ -12,8 +13,8 @@ const Card = ({ chapterNumber, chapterTitle, chapterDescription, topics }) => {
       <div className="w-full md:w-1/2 p-4">
         {topics.map((topic, index) => (
           <div key={index} className="mb-4 flex items-center">
-            <div className="bg-gray-300 text-black rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mr-4">
-              Image
+            <div className="bg-gray-800 text-black rounded-full w-12 h-12 md:w-20 md:h-20 flex items-center justify-center mr-4 overflow-hidden">
+              <Image src={`/${topic.image}`} alt={topic.title} width={40} height={40} className="object-contain" />
             </div>
             <div>
               <h3 className="text-sm md:text-xl font-semibold">{topic.title}</h3>
