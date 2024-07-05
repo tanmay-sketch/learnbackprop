@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto flex justify-between space-x-12">
-        <p className="mb-0">Tanmay Grandhisiri</p>
+        <p className="mb-0">© learnbackprop</p>
         <div className="flex space-x-8">
           <a
             href="https://www.linkedin.com/in/tanmay-grandhisiri/"
