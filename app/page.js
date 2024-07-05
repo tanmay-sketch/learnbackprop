@@ -35,9 +35,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white font-sans overflow-hidden">
       <Navbar />
-      <section id="home" className="relative flex flex-col md:flex-row items-center justify-between min-h-screen px-4 md:px-12">
+      <section id="home" className="relative flex flex-col md:flex-row items-center justify-center min-h-screen px-4 md:px-12">
         <Hero />
-        <div className="w-full md:w-1/2 h-[800px] flex items-center justify-center md:static absolute inset-0 z-10">
+        <div className="w-full md:w-1/2 h-[600px] flex items-center justify-center md:static absolute inset-0 z-10 hidden md:flex">
           <MLPAnimation />
         </div>
       </section>

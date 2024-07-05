@@ -69,12 +69,18 @@
     @apply border-border;
   }
 
-  body {
+  body, html {
     @apply bg-background text-foreground;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Hide scrollbar for WebKit browsers */
+  body::-webkit-scrollbar, html::-webkit-scrollbar {
+    display: none;
   }
 
   html {
@@ -122,4 +128,28 @@
   height: 100%;
   width: 100%;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  h1 {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
