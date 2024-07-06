@@ -11,7 +11,7 @@ export default function Hero() {
         <h3 className="text-lg sm:text-xl md:text-2xl font-normal text-center mb-6">
           Learn backpropagation visually and interactively
         </h3>
-        <a href="https://ohk8z0l81b7.typeform.com/to/cFCDtLkZ" target="_blank" rel="noopener noreferrer">
+        <a href="https://tally.so/r/wA8v9N" target="_blank" rel="noopener noreferrer">
           <button className="bg-blue-600 text-white py-2 px-4 rounded text-lg md:text-xl hover:bg-blue-700 transition-colors duration-300 mt-4">
             Join the Waitlist
           </button>
