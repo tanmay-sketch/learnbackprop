@@ -1,0 +1,74 @@
+/* ChapterHome.module.css */
+.chapterHome {
+    padding-top: 4rem;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex: 1;
+  }
+  
+  @media (min-width: 768px) {
+    .content {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .chapterHome {
+      padding-top: 6rem;
+    }
+  
+    .content {
+      padding: 0 1rem;
+    }
+  }
+  
+  .topicItem {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  
+  .topicItem:hover {
+    background-color: #333333;
+  }
+  
+  .topicIcon {
+    background-color: #333333;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    min-width: 60px; /* Add this line */
+    min-height: 60px; /* Add this line */
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Add this line */
+  }
+  
+  .iconImage {
+    width: 70%; /* Adjust this value as needed */
+    height: 70%; /* Adjust this value as needed */
+    object-fit: contain;
+  }
+  
+  .topicText {
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  
+  .topicDescription {
+    color: #a0a0a0;
+  }
