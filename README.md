@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LearnBackprop
 
-## Getting Started
+Welcome to LearnBackprop, a comprehensive guide to understanding the backpropagation algorithm and its underlying concepts. This project is designed to help you grasp the key ideas and advancements in backpropagation and related areas of machine learning.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. [History of Backpropagation](#chapter-1-history-of-backpropagation)
+2. [Linear Algebra](#chapter-2-linear-algebra)
+3. [Calculus](#chapter-3-calculus)
+4. [Neural Networks](#chapter-4-neural-networks)
+5. [Computational Graphs](#chapter-5-computational-graphs)
+6. [Automatic Differentiation](#chapter-6-automatic-differentiation)
+7. [Gradient Descent](#chapter-7-gradient-descent)
+8. [Backpropagation](#chapter-8-backpropagation)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Chapter 1: History of Backpropagation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This chapter is an introduction to the evolution of backpropagation over the years.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Topics
 
-## Learn More
+- **Early Developments**
+  - Understanding the early developments in backpropagation.
+- **Major Milestones**
+  - Learn about the major milestones in backpropagation.
+- **Recent Advances**
+  - Explore the recent advances in backpropagation.
 
-To learn more about Next.js, take a look at the following resources:
+## Chapter 2: Linear Algebra
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This chapter covers all the linear algebra concepts needed for backpropagation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Topics
 
-## Deploy on Vercel
+- **Vectors and Matrices**
+  - Introduction to vectors and matrices.
+- **Dot Product**
+  - Understand dot product and its applications.
+- **Matrix Multiplication**
+  - Explore matrix multiplication techniques.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Chapter 3: Calculus
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This chapter covers all the calculus concepts needed for backpropagation.
+
+### Topics
+
+- **Derivatives**
+  - Understanding derivatives and its intuition.
+- **Chain Rule**
+  - Derivative of a composite function.
+- **Partial Derivatives**
+  - Slight variation of derivatives.
+
+## Chapter 4: Neural Networks
+
+This chapter gives a brief introduction of neural networks.
+
+### Topics
+
+- **Perceptrons**
+  - Perceptrons and their role in neural networks.
+- **Activation Functions**
+  - What are activation functions?
+- **Network Architectures**
+  - Explore various neural network architectures.
+
+## Chapter 5: Computational Graphs
+
+This chapter explains the concept of computational graphs.
+
+### Topics
+
+- **Graph Basics**
+  - Understanding the basics of computational graphs.
+- **Graph Structures**
+  - Exploring different structures in computational graphs.
+- **Gradient Calculation**
+  - How do computers compute gradients?
+
+## Chapter 6: Automatic Differentiation
+
+This chapter covers the concept of automatic differentiation.
+
+### Topics
+
+- **Forward Mode**
+  - Understanding forward mode automatic differentiation.
+- **Reverse Mode**
+  - Exploring reverse mode automatic differentiation.
+- **Applications**
+  - Learn how automatic differentiation is applied.
+
+## Chapter 7: Gradient Descent
+
+This chapter covers the gradient descent optimization algorithm.
+
+### Topics
+
+- **Basic Concept**
+  - Understanding the basic concept of gradient descent.
+- **Variants**
+  - Exploring different variants of gradient descent.
+- **Applications**
+  - Learn how gradient descent is applied in optimization.
+
+## Chapter 8: Backpropagation
+
+This chapter covers the backpropagation algorithm in detail.
+
+### Topics
+
+- **Forward Pass**
+  - Understanding the forward pass in backpropagation.
+- **Backward Pass**
+  - Exploring the backward pass in backpropagation.
+- **Gradient Descent**
+  - Learn how to compute gradients using backpropagation.
+
+---
+
+Each chapter includes detailed explanations and visual aids to help you understand the concepts better. Explore the topics and enhance your knowledge of backpropagation and its related fields.

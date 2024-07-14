@@ -85,7 +85,7 @@ const Timeline = () => {
             <h4 className="vertical-timeline-element-subtitle">{data.subtitle}</h4>
             <p>{data.description}</p>
             <div className="mt-4">
-              <a href={data.link} target="_blank" rel="noopener noreferrer" className="bg-teal-50 text-black py-2 px-4 rounded hover:bg-amber-700">
+              <a href={data.link} target="_blank" rel="noopener noreferrer" className="bg-teal-50 text-black py-2 px-4 rounded hover:bg-teal-200">
                 Read more
               </a>
             </div>
