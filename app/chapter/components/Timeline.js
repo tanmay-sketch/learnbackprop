@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { link } from 'd3';
 
 const VerticalTimeline = dynamic(
   () => import('react-vertical-timeline-component').then((mod) => mod.VerticalTimeline),
@@ -32,20 +33,13 @@ const Timeline = () => {
         title: "Modern Backpropagation",
         subtitle: "Seppo Linnainmaa",
         description: "Published the modern version of backpropagation, also known as the reverse mode of automatic differentiation.",
-        link: "https://www.reddit.com/r/MachineLearning/comments/e5vzun/d_jurgen_schmidhuber_on_seppo_linnainmaa_inventor/p"
+        link: "https://www.reddit.com/r/MachineLearning/comments/e5vzun/d_jurgen_schmidhuber_on_seppo_linnainmaa_inventor/"
     },
     {
         date: "1974",
         title: "Backpropagation through time",
         subtitle: "Paul Werbos",
         description: "Developed the backpropagation algorithm in his PhD thesis.",
-        link: "https://www.researchgate.net/publication/35657389_Beyond_regression_new_tools_for_prediction_and_analysis_in_the_behavioral_sciences"
-    },
-    {
-        date: "1982",
-        title: "Standardizing Backpropagation",
-        subtitle: "Paul Werbos",
-        description: "Standardized the backpropagation technique for multilayer perceptrons (MLPs).",
         link: "https://axon.cs.byu.edu/Dan/678/papers/Recurrent/Werbos.pdf"
     },
     {
@@ -54,6 +48,26 @@ const Timeline = () => {
         subtitle: "David E. Rumelhart, Geoffrey E. Hinton, and Ronald J. Williams",
         description: "Published the influential paper that contributed to the popularization of backpropagation.",
         link: "https://www.youtube.com/watch?v=oq6Z76Gl0ho"
+    },
+    {
+        date: "1998",
+        title: "Efficient BackProp",
+        subtitle: "Yann LeCun, Léon Bottou, Genevieve Orr, and Klaus-Robert Müller",
+        description: "Introduced the concept of efficient backpropagation, which is widely used in training deep neural networks today.",
+        link: "http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf"
+    },
+    {
+        date: "1991",
+        title: "Vanishing Gradient Problem",
+        subtitle: "Sepp Hochreiter",
+        description: "Introduced the vanishing gradient problem in his PhD thesis.",
+        link: "https://www.superdatascience.com/blogs/recurrent-neural-networks-rnn-the-vanishing-gradient-problem"
+    },
+    {
+        date: "1994",
+        title: "Learning Long-Term Dependencies with gradient descent is difficult",
+        subtitle: "Yoshua Bengio, Patrice Simard, and Paolo Frasconi",
+        description: "Alternate methods to standard gradient descent are introduced to address the vanishing gradient problem.",
     },
     {
         date: "2010",

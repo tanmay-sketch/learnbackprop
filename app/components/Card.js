@@ -9,8 +9,8 @@ const Card = ({ chapterNumber, chapterTitle, chapterDescription, topics }) => {
         <p className="text-gray-300 mb-2 text-sm md:text-base">Chapter {chapterNumber}</p>
         <h2 className="text-xl md:text-2xl font-bold mb-4">{chapterTitle}</h2>
         <p className="mb-4 text-sm md:text-base">{chapterDescription}</p>
-        {chapterNumber === 1 ? (
-          <Link href={`/chapter/1`}>
+        {chapterNumber === 1 || chapterNumber === 2 ? (
+          <Link href={`/chapter/${chapterNumber}`}>
             <button className="bg-blue-600 text-white py-2 px-4 rounded-full text-sm md:text-base hover:bg-blue-700 transition-colors duration-300">
               Go to {chapterTitle}
             </button>
