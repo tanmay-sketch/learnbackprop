@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import ChapterHome from '../components/ChapterHome';
 import Footer from '../../components/Footer';
+import NextChapterButton from '../components/NextChapterButton';
 
 const Chapter2Page = () => {
     useEffect(() => {
@@ -10,8 +11,9 @@ const Chapter2Page = () => {
     }, []);
 
     return (
-        <div className="bg-background text-foreground">
+        <div className="bg-black text-foreground">
             <ChapterHome chapterId={2} />
+            <NextChapterButton currentChapterId={2} />
             <Footer />
         </div>
     );
