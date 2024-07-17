@@ -6,18 +6,14 @@ const NextChapterButton = ({ currentChapterId }) => {
   const [nextChapter, setNextChapter] = useState(null);
 
   useEffect(() => {
-    console.log('NextChapterButton mounted with currentChapterId:', currentChapterId);
     const fetchChapterDetails = async () => {
       try {
-        console.log('Fetching chapter details...');
         const response = await fetch('/chapters.json');
         if (response.ok) {
           const data = await response.json();
-          console.log('Fetched data:', data);
           const currentChapterIndex = data.findIndex(chap => chap.id === currentChapterId);
           if (currentChapterIndex !== -1 && currentChapterIndex < data.length - 1) {
             const chapter = data[currentChapterIndex + 1];
-            console.log('Next chapter:', chapter);
             setNextChapter(chapter);
           } else {
             console.error('Next chapter not found.');
@@ -34,11 +30,8 @@ const NextChapterButton = ({ currentChapterId }) => {
   }, [currentChapterId]);
 
   if (!nextChapter) {
-    console.log('Next chapter not found.');
     return null;
   }
-
-  console.log('Rendering NextChapterButton:', nextChapter);
 
   return (
     <div className="w-full mt-8">
