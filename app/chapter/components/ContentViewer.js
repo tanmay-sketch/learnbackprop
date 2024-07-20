@@ -1,36 +1,37 @@
-// app/chapter/components/ContentViewer.js
-import { getMdxContent } from '@/lib/mdx'
-import 'katex/dist/katex.min.css'
-import { InlineMath, BlockMath } from 'react-katex'
+import React from 'react';
+import { MDXRemote } from 'next-mdx-remote';
+import { InlineMath, BlockMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 
-const ContentViewer = async ({ chapterId }) => {
-  console.log(`ContentViewer: Starting to fetch content for chapter ${chapterId}`);
-  
-  try {
-    const { content, frontmatter } = await getMdxContent(chapterId);
-    
-    console.log('ContentViewer: Content fetched successfully');
-    console.log('ContentViewer: Frontmatter:', frontmatter);
-    console.log('ContentViewer: Content type:', typeof content);
+const PlayButton = ({ graphicId, onPlay }) => (
+  <div className="flex justify-center my-8">
+    <button
+      onClick={() => onPlay(graphicId)}
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Play
+    </button>
+  </div>
+);
 
-    return (
-      <div className="p-6 text-white">
-        <h2 className="text-3xl font-bold mb-6">Chapter {chapterId}</h2>
-        <div className="mdx-content">
-          {content}
-        </div>
-      </div>
-    );
-  } catch (error) {
-    console.error('ContentViewer: Error fetching content:', error);
-    return (
-      <div className="p-6 text-white bg-red-900/50 rounded">
-        <h2 className="text-2xl font-bold mb-4">Error loading content</h2>
-        <p className="mb-2">{error.message}</p>
-        <p className="whitespace-pre-wrap">Error details: {JSON.stringify(error, Object.getOwnPropertyNames(error), 2)}</p>
-      </div>
-    );
-  }
-}
+const components = {
+  PlayButton,
+  InlineMath,
+  BlockMath,
+};
+
+const ContentViewer = ({ mdxSource, onPlay }) => {
+  return (
+    <div className="prose prose-invert max-w-none p-6 text-white">
+      <MDXRemote
+        {...mdxSource}
+        components={{
+          ...components,
+          PlayButton: (props) => <PlayButton {...props} onPlay={onPlay} />,
+        }}
+      />
+    </div>
+  );
+};
 
 export default ContentViewer;

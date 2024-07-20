@@ -77,6 +77,7 @@ module.exports = {
   plugins: [
     require("tailwindcss-animate"),
     require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),  // Added typography plugin
     plugin(function ({ addVariant, e, postcss }) {
       addVariant('firefox', ({ container, separator }) => {
         const isFirefoxRule = postcss.atRule({
