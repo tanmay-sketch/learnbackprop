@@ -1,19 +1,47 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
 const MatricesGraphic = () => {
+  const svgRef = useRef(null);
+  const containerRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
   useEffect(() => {
-    // Set up the SVG canvas dimensions
-    const width = 500;
-    const height = 500;
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const { width, height } = containerRef.current.getBoundingClientRect();
+        const aspectRatio = 4 / 3; // Desired aspect ratio (width / height)
+        let newWidth = width;
+        let newHeight = width / aspectRatio;
+
+        if (newHeight > height) {
+          newHeight = height;
+          newWidth = height * aspectRatio;
+        }
+
+        setDimensions({ width: newWidth, height: newHeight });
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  useEffect(() => {
+    if (dimensions.width === 0 || dimensions.height === 0) return;
+
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const width = dimensions.width;
+    const height = dimensions.height;
 
     // Remove the previous SVG if it exists
-    d3.select('#matrixGraphic').select('svg').remove();
+    d3.select(svgRef.current).selectAll('*').remove();
 
     // Create the SVG canvas
-    const svg = d3.select('#matrixGraphic')
-      .append('svg')
+    const svg = d3.select(svgRef.current)
+      .attr('width', width)
+      .attr('height', height)
       .attr('viewBox', `0 0 ${width} ${height}`)
       .attr('preserveAspectRatio', 'xMidYMid meet')
       .append('g')
@@ -52,9 +80,9 @@ const MatricesGraphic = () => {
       .attr('y', (d, i) => yScale(0) + i * yScale.bandwidth())
       .attr('width', xScale.bandwidth())
       .attr('height', yScale.bandwidth())
-      .attr('fill', 'blue')
-      .attr('stroke', 'black')
-      .attr('stroke-width', 1);
+      .attr('stroke', 'white')
+      .attr('stroke-width', 1)
+      .attr('fill', 'rgba(0, 0, 0, 0.5)');
 
     // Add text labels to the stacked elements
     const labels = svg.selectAll('text')
@@ -72,21 +100,21 @@ const MatricesGraphic = () => {
     // Animate the elements to their final positions in the matrix
     cells.transition()
       .duration(1000)
-      .delay((d, i) => i * 500)
+      .delay((d, i) => i * 100)
       .attr('x', d => xScale(d.col))
       .attr('y', d => yScale(d.row));
 
     labels.transition()
       .duration(1000)
-      .delay((d, i) => i * 500)
+      .delay((d, i) => i * 100)
       .attr('x', d => xScale(d.col) + xScale.bandwidth() / 2)
       .attr('y', d => yScale(d.row) + yScale.bandwidth() / 2);
 
-  }, []);
+  }, [dimensions]);
 
   return (
-    <div id="matrixGraphic" className="w-full h-full flex justify-center items-center bg-black p-6">
-      <svg width="100%" height="100%"></svg>
+    <div ref={containerRef} className="w-full h-full flex justify-center items-center bg-black p-6">
+      <svg ref={svgRef} className="w-full h-auto"></svg>
     </div>
   );
 };

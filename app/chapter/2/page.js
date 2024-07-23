@@ -25,7 +25,6 @@ const Chapter2Page = async () => {
     <div className="flex flex-col min-h-screen bg-black text-white">
       <ChapterHome chapterId={chapterId} />
       <ChapterContent chapterId={chapterId} contentData={serializedContentData} error={serializedError} />
-      <NextChapterButton currentChapterId={chapterId} />
       <Footer />
     </div>
   );

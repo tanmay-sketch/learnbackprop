@@ -17,7 +17,6 @@ const Timeline = () => {
 
   useEffect(() => {
     setIsClient(true);
-    console.log('Timeline component mounted');
   }, []);
 
   const timelineData = [

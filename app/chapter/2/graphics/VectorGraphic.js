@@ -1,22 +1,51 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
 const VectorGraphic = () => {
+  const svgRef = useRef(null);
+  const containerRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
   useEffect(() => {
-    // Set up the SVG canvas dimensions
-    const width = 500;
-    const height = 500;
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const { width, height } = containerRef.current.getBoundingClientRect();
+        const aspectRatio = 4 / 3; // Desired aspect ratio (width / height)
+        let newWidth = width;
+        let newHeight = width / aspectRatio;
+
+        if (newHeight > height) {
+          newHeight = height;
+          newWidth = height * aspectRatio;
+        }
+
+        setDimensions({ width: newWidth, height: newHeight });
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  useEffect(() => {
+    if (dimensions.width === 0 || dimensions.height === 0) return;
+
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const width = dimensions.width;
+    const height = dimensions.height;
 
     // Remove the previous SVG if it exists
-    d3.select('#vectorGraphic').select('svg').remove();
+    d3.select(svgRef.current).selectAll('*').remove();
 
     // Create the SVG canvas
-    const svg = d3.select('#vectorGraphic')
-      .append('svg')
+    const svg = d3.select(svgRef.current)
+      .attr('width', width)
+      .attr('height', height)
       .attr('viewBox', `0 0 ${width} ${height}`)
-      .attr('preserveAspectRatio', 'xMidYMid meet')
-      .append('g')
+      .attr('preserveAspectRatio', 'xMidYMid meet');
+
+    const g = svg.append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // Define the scales
@@ -29,19 +58,37 @@ const VectorGraphic = () => {
       .range([height - margin.top - margin.bottom, 0]);
 
     // Add the X and Y axes
-    svg.append('g')
+    g.append('g')
       .attr('transform', `translate(0,${yScale(0)})`)
-      .call(d3.axisBottom(xScale));
+      .call(d3.axisBottom(xScale).ticks(10))
+      .attr('color', 'white');
 
-    svg.append('g')
+    g.append('g')
       .attr('transform', `translate(${xScale(0)},0)`)
-      .call(d3.axisLeft(yScale));
+      .call(d3.axisLeft(yScale).ticks(10))
+      .attr('color', 'white');
+
+    // Add axis labels
+    svg.append('text')
+      .attr('x', width / 2)
+      .attr('y', height - 10)
+      .attr('text-anchor', 'middle')
+      .style('fill', 'white')
+      .text('X-axis');
+
+    svg.append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('x', -height / 2)
+      .attr('y', 20)
+      .attr('text-anchor', 'middle')
+      .style('fill', 'white')
+      .text('Y-axis');
 
     // Define the vector
     const vector = { x: 3, y: 2 };
 
     // Add the vector as an arrow
-    const arrow = svg.append('line')
+    const arrow = g.append('line')
       .attr('x1', xScale(0))
       .attr('y1', yScale(0))
       .attr('x2', xScale(vector.x))
@@ -64,13 +111,29 @@ const VectorGraphic = () => {
       .attr('fill', 'blue');
 
     // Add a circle to the end of the vector
-    const circle = svg.append('circle')
+    const circle = g.append('circle')
       .attr('cx', xScale(vector.x))
       .attr('cy', yScale(vector.y))
       .attr('r', 5)
       .attr('fill', 'red')
       .attr('stroke', 'black')
       .attr('stroke-width', 1);
+
+    // Add text for vector coordinates
+    g.append('text')
+      .attr('x', xScale(vector.x) + 5)
+      .attr('y', yScale(vector.y) - 5)
+      .attr('fill', 'white')
+      .text(`(${vector.x}, ${vector.y})`);
+
+    // Add text for vector label
+    g.append('text')
+      .attr('x', xScale(vector.x * 0.5))
+      .attr('y', yScale(vector.y * 0.5) - 10)
+      .attr('fill', 'blue')
+      .attr('font-size', '14px')
+      .attr('text-anchor', 'middle')
+      .text('Vector');
 
     // Animate the vector and circle
     arrow.attr('x2', xScale(0))
@@ -87,11 +150,11 @@ const VectorGraphic = () => {
       .attr('cx', xScale(vector.x))
       .attr('cy', yScale(vector.y));
 
-  }, []);
+  }, [dimensions]);
 
   return (
-    <div id="vectorGraphic" className="w-full h-full flex justify-center items-center bg-black p-6">
-      <svg width="100%" height="100%"></svg>
+    <div ref={containerRef} className="w-full h-full flex justify-center items-center bg-black p-6">
+      <svg ref={svgRef} className="w-full h-auto"></svg>
     </div>
   );
 };

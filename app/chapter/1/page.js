@@ -11,7 +11,6 @@ const DynamicTimeline = dynamic(() => import('../components/Timeline'), { ssr: f
 
 const Chapter1Page = () => {
     useEffect(() => {
-        console.log('Chapter1Page component mounted');
     }, []);
 
     return (

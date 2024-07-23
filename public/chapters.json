@@ -15,8 +15,8 @@
     "chapterDescription": "This chapter covers all the linear algebra concepts needed for backpropagation.",
     "topics": [
       { "title": "Vectors and Matrices", "description": "Introduction to vectors and matrices", "image": "icons/vector.png" },
-      { "title": "Dot Product", "description": "Understand dot product and its applications", "image": "icons/domino.png" },
-      { "title": "Matrix Multiplication", "description": "Explore matrix multiplication techniques", "image": "icons/matrix.png" }
+      { "title": "Matrix Computations", "description": "Explore the different computations with matrices", "image": "icons/matrix.png" },
+      { "title": "Dot Product", "description": "Understand dot product and its applications", "image": "icons/domino.png" }
     ]
   },
   {

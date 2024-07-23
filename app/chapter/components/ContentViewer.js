@@ -1,3 +1,4 @@
+// ContentViewer.js
 import React from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { InlineMath, BlockMath } from 'react-katex';
@@ -22,7 +23,7 @@ const components = {
 
 const ContentViewer = ({ mdxSource, onPlay }) => {
   return (
-    <div className="prose prose-invert max-w-none p-6 text-white">
+    <div className="prose prose-invert max-w-none p-6 text-white overflow-x-auto">
       <MDXRemote
         {...mdxSource}
         components={{

@@ -26,7 +26,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`fixed w-full top-0 left-0 z-50 p-4 transition-colors duration-300 ${isScrolled ? 'bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg' : 'bg-transparent'}`}>
+    <nav className={`fixed w-full top-0 left-0 z-50 p-4 transition-colors duration-300 ${isScrolled ? 'bg-gray-900 bg-opacity-70 backdrop-filter backdrop-blur-lg' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold hover:text-gray-400 transition-colors duration-300">
           learnbackprop

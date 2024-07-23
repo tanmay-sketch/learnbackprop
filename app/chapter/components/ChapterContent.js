@@ -30,10 +30,6 @@ const ChapterContent = ({ chapterId, contentData, error }) => {
   }
 
   useEffect(() => {
-    console.log('ChapterContent: contentData:', deserializedContentData);
-    if (deserializedContentData && deserializedContentData.mdxSource) {
-      console.log('ChapterContent: contentData.mdxSource:', deserializedContentData.mdxSource);
-    }
     console.log('ChapterContent: error:', deserializedError);
   }, [deserializedContentData, deserializedError]);
 

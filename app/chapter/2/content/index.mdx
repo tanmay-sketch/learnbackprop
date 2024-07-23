@@ -1,47 +1,179 @@
 # Vectors
 
-Vectors are a fundamental concept in linear algebra. They are used to represent quantities that have both magnitude and direction.
+Vectors are a fundamental concept in linear algebra. They are used to represent quantities that have both magnitude and direction. 
 
-**Definition:**
+It is an ordered list of scalar  values, called attributes. A vector can be doneted as a bold character like <InlineMath math="\mathbf{v}" />. They can be visualized as arrows that point to some directions as as well as points in a multi-dimensional space.
 
-A vector in <InlineMath math="\mathbb{R}^n" /> is an ordered list of <InlineMath math="n" /> real numbers, typically written as:
-<BlockMath math="\mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}" />
 
-**Example:**
+**Example**
 
-A vector in <InlineMath math="\mathbb{R}^3" /> could be:
-<BlockMath math="\mathbf{v} = \begin{bmatrix} 2 \\ -1 \\ 3 \end{bmatrix}" />
+A vector in two-dimensional space can be represented as:
+<BlockMath math="\mathbf{v} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}" />
+
+A vector in three-dimensional space can be represented as:
+<BlockMath math="\mathbf{v} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}" />
+
+- The attribute of a vector can be accessed by its index. This is denoted as an italic character like <InlineMath math="v_i" />. For example, the first attribute of vector <InlineMath math="\mathbf{v}" /> is <InlineMath math="v_1" />. 
+
+- The index <InlineMath math="i" /> can be used denote a specific dimension of a vector. 
+
+- The letter <InlineMath math="n" /> is used to denote the number of attributes/elements in a vector. For example, a vector with three attributes is denoted as <InlineMath math="\mathbf{v} \in \mathbb{R}^3" /> (third dimension).
+
+A row vector is a vector that has only one row and multiple columns. The dimension of a row vector of a row vector is always <InlineMath math="1\times n"/>
+<BlockMath math="\begin{bmatrix}2 & -8 & 7 \end{bmatrix}"/>
+
+A column vector is a vector that has only one column and multiple rows. The dimension of a column vector is always <InlineMath math="n\times 1"/>
+<BlockMath math="\begin{bmatrix}2 \\ -8 \\ 7 \end{bmatrix}"/>
 
 <PlayButton graphicId="VectorGraphic" />
 
 # Matrices
 
-Matrices are a fundamental concept in linear algebra. In context with vectors, matrices are used to represent linear transformations.
+A matrix is a rectangular array of numbers, arranged in rows and columns, that can be used to represent linear transformations and solve systems of linear equations. Below is an example of a matrix:
+<BlockMath math="\begin{bmatrix} 1 & 2 &  3 \\ 4 & 5 & 6 \end{bmatrix}"/>
 
-**Definition:**
-
-A matrix is a rectangular array of numbers, typically written as:
-<BlockMath math="\mathbf{A} = \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix}" />
-
-**Example:**
-
-A matrix could be:
-<BlockMath math="\mathbf{A} = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}" />
+A matrix <InlineMath math="\mathbf{A}"/> has elements <InlineMath math="A_{ij}"/> where <InlineMath math="i"/> is the row index and <InlineMath math="j"/> is the column index. The element <InlineMath math="A_{ij}"/> is the value in the <InlineMath math="i"/>th row and <InlineMath math="j"/>th column of the matrix.
 
 <PlayButton graphicId="MatricesGraphic" />
 
+# Matrix Computations
+
+## 1. Addition/Subtraction with Matrices
+
+To add two matrices together, add all the corresponding elements together. Same thing goes with subtraction. 
+<BlockMath math="\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} + \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 1+5 & 2+6 \\ 3+7 & 4+8 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 6 & 8 \\ 10 & 12 \end{bmatrix}" />
+
+
+<span style={{ color: 'pink' }}>
+  Note: To add or subtract two matrices together the dimensions of the matrices have to be the same.
+</span>
+
+## 2. Scalar Multiplication
+This is when you multiply a matrix by a scalar (a single number). To do this, you multiply every element in the matrix by the scalar.
+<BlockMath math="3 \times \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 3 \times 1 & 3 \times 2 \\ 3 \times 3 & 3 \times 4 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 3 & 6 \\ 9 & 12 \end{bmatrix}" />
+
+
+## 3. Matrix Vector Multiplication 
+An <InlineMath math="m \times n"/> matrix multiplied by an <InlineMath math="n \times 1"/> column vector results in an <InlineMath math="m \times 1"/> column vector.
+
+<BlockMath math="\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \cdot \begin{bmatrix} 5 \\ 6 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 1 \times 5 + 2 \times 6 \\ 3 \times 5 + 4 \times 6 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 17 \\ 39 \end{bmatrix}" />
+
+<span style={{ color: 'pink' }}>
+    Note: The number of columns in the first matrix must be equal to the number of rows in the second matrix.
+</span>
+
+## 4. Matrix Multiplication
+
+An <InlineMath math="m \times n"/> matrix multiplied by an <InlineMath math="n \times p"/> matrix results in an <InlineMath math="m \times p"/> matrix.
+
+Matrix multiplications are not commutative, meaning that the order in which you multiply matrices matters.
+Except when you multiply by an identity matrix, the order does not matter.
+
+<BlockMath math="\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \cdot \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 1 \times 5 + 2 \times 7 & 1 \times 6 + 2 \times 8 \\ 3 \times 5 + 4 \times 7 & 3 \times 6 + 4 \times 8 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}" />
+
+Let's look at an example where dimensions of the matrices are different:
+<BlockMath math="\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix} \cdot \begin{bmatrix} 7 & 8 \\ 9 & 10 \\ 11 & 12 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 1 \times 7 + 2 \times 9 + 3 \times 11 & 1 \times 8 + 2 \times 10 + 3 \times 12 \\ 4 \times 7 + 5 \times 9 + 6 \times 11 & 4 \times 8 + 5 \times 10 + 6 \times 12 \end{bmatrix}" />
+<BlockMath math="= \begin{bmatrix} 58 & 64 \\ 139 & 154 \end{bmatrix}" />
+
+
+<span style={{ color: 'pink' }}>
+    Note: The number of columns in the first matrix must be equal to the number of rows in the second matrix.
+</span>
+
+## 5. Transpose of a Matrix
+
+The transpose of a matrix is a new matrix whose rows are the columns of the original matrix. The transpose of a matrix <InlineMath math="\mathbf{A}"/> is denoted as <InlineMath math="\mathbf{A}^T"/>.
+
+<BlockMath math="\mathbf{A} = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}" />
+<BlockMath math="\mathbf{A}^T = \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}" />
+
+Multiplying a matrix by its transpose results in a symmetric matrix (A matrix that is equal to its transpose).
+
+<BlockMath math="\mathbf{A} \cdot \mathbf{A}^T = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \cdot \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}" />
+
+<BlockMath math="= \begin{bmatrix} 1 \times 1 + 2 \times 2 & 1 \times 3 + 2 \times 4 \\ 3 \times 1 + 4 \times 2 & 3 \times 3 + 4 \times 4 \end{bmatrix}" />
+
+<BlockMath math="= \begin{bmatrix} 5 & 11 \\ 11 & 25 \end{bmatrix}" />
+
+## 6. Inverse of a Matrix
+
+The inverse of a matrix is a matrix that when multiplied with the original matrix gives an identity matrix. The inverse of a matrix <InlineMath math="\mathbf{A}"/> is denoted as <InlineMath math="\mathbf{A}^{-1}"/>.
+
+<BlockMath math="\mathbf{A} \cdot \mathbf{A}^{-1} = \mathbf{I}" />
+
+The inverse of a matrix can be found using the formula:
+<BlockMath math="\mathbf{A}^{-1} = \frac{1}{\text{det}(\mathbf{A})} \cdot \text{adj}(\mathbf{A})" />
+
+Where <InlineMath math="\text{det}(\mathbf{A})"/> is the determinant of matrix <InlineMath math="\mathbf{A}"/> and <InlineMath math="\text{adj}(\mathbf{A})"/> is the adjugate of matrix <InlineMath math="\mathbf{A}"/>.
+
+**What is a determinant?**
+
+A determinant in simple terms is a scalar value that gives you important information about the matrix that you are working with. 
+
+The determinant of a 2x2 matrix is given by the following formula:
+<BlockMath math="A=\begin{bmatrix} a & b \\ c & d \end{bmatrix}"/>
+<BlockMath math="\text{det}(\mathbf{A}) = ad - bc" />
+
+**What is an adjugate?**
+
+An adjugate or adjoint of a matrix is the transpose of the cofactor matrix of the original matrix. 
+
+How do you find the adjugate of a matrix? 
+
+You find the cofactor matrix of the original matrix and then you transpose it.
+
+What is a cofactor matrix?
+
+The cofactor matrix is a matrix that is derived from the original matrix by removing the row and column of a specific element and then finding the determinant of the remaining matrix.
+
+<BlockMath math="\mathbf{A} = \begin{bmatrix} a & b \\ c & d \end{bmatrix}" />
+<BlockMath math="\text{cofactor}(\mathbf{A}) = \begin{bmatrix} d & -c \\ -b & a \end{bmatrix}" />
+
+Then you transpose the cofactor matrix to get the adjugate matrix.
+<BlockMath math="\text{adj}(\mathbf{A}) = \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}"/>
+
+You can then use the adjugate matrix to find the inverse of the original matrix.
+
+This is obviously a very simplified explanation of what the determinant, adjugate, and inverse of a matrix are. There are more complex and detailed explanations that you can find in textbooks and online resources.
+
+Check this resource out for more information on the determinant, adjugate, and inverse of a matrix. [Link to Medium Blog](https://medium.com/linear-algebra-basics/inverse-matrices-ba2259b0503d)
+
+
 # Dot Product
 
-The dot product, also known as the scalar product, is an algebraic operation that takes two equal-length sequences of numbers (usually coordinate vectors) and returns a single number.
+If we want to multiply two vectors directly, we cannot multiply them directly like we do for scalar values. Because vectors have both magnitude and direction. 
 
-**Definition:**
+The dot product is a way to multiply two vectors together to get a scalar value. The dot product of two vectors <InlineMath math="\mathbf{v}" /> and <InlineMath math="\mathbf{w}" /> is denoted as <InlineMath math="\mathbf{v} \cdot \mathbf{w}" />.
 
-For vectors <InlineMath math="\mathbf{u}" /> and <InlineMath math="\mathbf{v}" />, the dot product is defined as:
-<BlockMath math="\mathbf{u} \cdot \mathbf{v} = u_1 v_1 + u_2 v_2 + \cdots + u_n v_n" />
+I will be explaining dot products in a very simple way here, for more detailed explanation check out the resource at the end.
 
-**Example:**
+The dot product of two vectors is the sum of the products of the corresponding elements of the two vectors.
 
-If <InlineMath math="\mathbf{u} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}" /> and <InlineMath math="\mathbf{v} = \begin{bmatrix} 4 \\ -5 \\ 6 \end{bmatrix}" />, then their dot product is:
-<BlockMath math="\mathbf{u} \cdot \mathbf{v} = 1 \cdot 4 + 2 \cdot (-5) + 3 \cdot 6 = 4 - 10 + 18 = 12" />
+<BlockMath math="\mathbf{v} \cdot \mathbf{w} = v_1 \times w_1 + v_2 \times w_2 + \ldots + v_n \times w_n" />
+
+But what does the output of the dot product mean? 
+
+The dot product of two vectors is a scalar value that tells you how much one vector extends in the direction of another vector. It can give us information whether the vectors are parallel or perpendicular to each other.
+
+- If the dot product of two vectors is zero, then the vectors are perpendicular to each other. 
+
+- If the dot product is positive, then the vectors are in the same direction. 
+
+- If the dot product is negative, then the vectors are in opposite directions.
+
+<span style={{ color: 'pink' }}>
+    Note: In order to calculate the dot product of two vectors, the vectors must have the same number of elements.
+</span>
+
+As mentioned if you want further information about the dot product, check this awesome video by **3Blue1Brown**. [Link to Video](https://www.youtube.com/watch?v=LyGKycYT2v0&pp=ygUZZG90IHByb2R1Y3QgM2JsdWUgMSBicm93bg%3D%3D)
 
 <PlayButton graphicId="DotProductGraphic" />
