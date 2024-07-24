@@ -13,7 +13,7 @@ const DotProductGraphic = () => {
     const updateDimensions = () => {
       if (containerRef.current) {
         const { width, height } = containerRef.current.getBoundingClientRect();
-        const aspectRatio = 4 / 3; // Desired aspect ratio (width / height)
+        const aspectRatio = 4 / 3;
         let newWidth = width;
         let newHeight = width / aspectRatio;
 
@@ -38,10 +38,8 @@ const DotProductGraphic = () => {
     const width = dimensions.width;
     const height = dimensions.height;
 
-    // Remove the previous SVG if it exists
     d3.select(svgRef.current).selectAll('*').remove();
 
-    // Create the SVG canvas
     const svg = d3.select(svgRef.current)
       .attr('width', width)
       .attr('height', height)
@@ -51,7 +49,6 @@ const DotProductGraphic = () => {
     const g = svg.append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    // Define the scales
     const xScale = d3.scaleLinear()
       .domain([-6, 6])
       .range([0, width - margin.left - margin.right]);
@@ -60,7 +57,6 @@ const DotProductGraphic = () => {
       .domain([-6, 6])
       .range([height - margin.top - margin.bottom, 0]);
 
-    // Add the X and Y axes
     g.append('g')
       .attr('transform', `translate(0,${yScale(0)})`)
       .call(d3.axisBottom(xScale).ticks(12))
@@ -71,7 +67,6 @@ const DotProductGraphic = () => {
       .call(d3.axisLeft(yScale).ticks(12))
       .attr('color', 'white');
 
-    // Add axis labels
     svg.append('text')
       .attr('x', width / 2)
       .attr('y', height - margin.bottom / 3)
@@ -89,7 +84,6 @@ const DotProductGraphic = () => {
       .style('font-size', '16px')
       .text('Y-axis');
 
-    // Function to draw a vector
     const drawVector = (vector, color, label) => {
       const arrow = g.append('line')
         .attr('x1', xScale(0))
@@ -110,7 +104,6 @@ const DotProductGraphic = () => {
       return arrow;
     };
 
-    // Define the arrowhead markers
     ['U', 'V', 'Proj'].forEach(label => {
       svg.append('defs').append('marker')
         .attr('id', `arrow${label}`)
@@ -125,12 +118,11 @@ const DotProductGraphic = () => {
         .attr('fill', label === 'U' ? 'blue' : label === 'V' ? 'red' : 'green');
     });
 
-    // Draw the vectors
     drawVector(vectorU, 'blue', 'u');
     drawVector(vectorV, 'red', 'v');
 
-    // Function to update the graphic based on the current step
     const updateGraphic = () => {
+      // ... (rest of the updateGraphic function remains the same)
       if (step >= 1) {
         // Show angle between vectors
         const angle = Math.acos((vectorU.x * vectorV.x + vectorU.y * vectorV.y) / 
@@ -207,12 +199,14 @@ const DotProductGraphic = () => {
     } else {
       setVectorV(newVector);
     }
-    setStep(0);  // Reset steps when vectors change
+    setStep(0);
   };
 
   return (
     <div ref={containerRef} className="w-full h-full flex flex-col items-center justify-center space-y-4 bg-black p-6">
-      <svg ref={svgRef} className="w-full h-auto max-h-[80vh]"></svg>
+      <div style={{ width: '100%', height: '0', paddingBottom: '75%', position: 'relative' }}>
+        <svg ref={svgRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}></svg>
+      </div>
       <div className="flex flex-wrap justify-center gap-4">
         <div className="flex items-center space-x-2">
           <label className="text-white">u:</label>
