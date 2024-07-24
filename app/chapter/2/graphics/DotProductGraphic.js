@@ -53,38 +53,40 @@ const DotProductGraphic = () => {
 
     // Define the scales
     const xScale = d3.scaleLinear()
-      .domain([-5, 5])
+      .domain([-6, 6])
       .range([0, width - margin.left - margin.right]);
 
     const yScale = d3.scaleLinear()
-      .domain([-5, 5])
+      .domain([-6, 6])
       .range([height - margin.top - margin.bottom, 0]);
 
     // Add the X and Y axes
     g.append('g')
       .attr('transform', `translate(0,${yScale(0)})`)
-      .call(d3.axisBottom(xScale).ticks(10))
+      .call(d3.axisBottom(xScale).ticks(12))
       .attr('color', 'white');
 
     g.append('g')
       .attr('transform', `translate(${xScale(0)},0)`)
-      .call(d3.axisLeft(yScale).ticks(10))
+      .call(d3.axisLeft(yScale).ticks(12))
       .attr('color', 'white');
 
     // Add axis labels
     svg.append('text')
       .attr('x', width / 2)
-      .attr('y', height - 10)
+      .attr('y', height - margin.bottom / 3)
       .attr('text-anchor', 'middle')
       .style('fill', 'white')
+      .style('font-size', '16px')
       .text('X-axis');
 
     svg.append('text')
       .attr('transform', 'rotate(-90)')
       .attr('x', -height / 2)
-      .attr('y', 20)
+      .attr('y', margin.left / 3)
       .attr('text-anchor', 'middle')
       .style('fill', 'white')
+      .style('font-size', '16px')
       .text('Y-axis');
 
     // Function to draw a vector
@@ -99,9 +101,10 @@ const DotProductGraphic = () => {
         .attr('marker-end', `url(#arrow${label})`);
 
       g.append('text')
-        .attr('x', xScale(Math.max(-4.5, Math.min(4.5, vector.x * 1.1))))
-        .attr('y', yScale(Math.max(-4.5, Math.min(4.5, vector.y * 1.1))))
+        .attr('x', xScale(Math.max(-5.5, Math.min(5.5, vector.x * 1.1))))
+        .attr('y', yScale(Math.max(-5.5, Math.min(5.5, vector.y * 1.1))))
         .attr('fill', color)
+        .style('font-size', '14px')
         .text(label);
 
       return arrow;
@@ -208,8 +211,8 @@ const DotProductGraphic = () => {
   };
 
   return (
-    <div ref={containerRef} className="w-full h-full flex flex-col items-center justify-center space-y-4">
-      <svg ref={svgRef} className="w-full h-auto max-h-[80vh]" />
+    <div ref={containerRef} className="w-full h-full flex flex-col items-center justify-center space-y-4 bg-black p-6">
+      <svg ref={svgRef} className="w-full h-auto max-h-[80vh]"></svg>
       <div className="flex flex-wrap justify-center gap-4">
         <div className="flex items-center space-x-2">
           <label className="text-white">u:</label>
