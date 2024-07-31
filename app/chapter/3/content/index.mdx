@@ -1,0 +1,164 @@
+# Derivatives
+
+In mathematics, differentiation is the process of finding the derivative of a function. The derivative of a function at a certain point is the slope of the tangent line to the function at that point. 
+
+You'll often see derivative of a function being defined as "Instantaneous rate of change of a function". 
+
+As explained in **3Blue1Brown**'s video on derivatives ([Link to Video](https://youtu.be/9vKqVkMQHKk)). This phrase is oxy-moronic because rate of change is a concept that requires a change over time but instantaneous rate of change is a concept that requires no time.
+
+A better phrase for describing derivatives would be "Best constant approximation for a function at a point". This phrase is more accurate because the derivative of a function at a point is the best constant that approximates the function at that point.
+
+You can watch the video above to get a better visual understanding and intuition of derivatives but in this section we will just be going over imporation concepts and formulas related to derivatives.
+
+The derivative of a function is a new function that describes how the original function changes as its input changes.
+
+The derivative is depicted using the prime notation. For example, the derivative of a function f(x) is denoted as f'(x).
+
+It is also denoted using the Leibniz notation. For example, the derivative of a function f(x) is denoted as <InlineMath math="\frac{df}{dx}" />.
+
+**Definition**
+
+The secant line is a straight line that intersects two points on a curve. The slope of the secant line is the average rate of change of the function between the two points.
+
+Slope of secant:
+<BlockMath math="\frac{f(x+h)-f(x)}{h}" />
+
+Now we want to find the slope of the secant line as the distance between the two points approaches zero. This is the derivative of the function.
+
+**Derivative of a function f(x) at a point x:**
+<BlockMath math="\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}" />
+
+<PlayButton graphicId="DerivativesGraphic" />
+
+Basic rules of differentiation:
+
+### 1. Constant Rule
+
+The constant rule states that the derivative of a constant is zero.
+
+<BlockMath math="\frac{d}{dx}(c) = 0"/>
+
+### 2. Constant Multiple Rule
+
+The constant multiple rule states that the derivative of a constant multiplied by a function is the constant multiplied by the derivative of the function.
+
+<BlockMath math="\frac{d}{dx}(cf(x)) = c\frac{d}{dx}(f(x))"/>
+
+### 3. Power Rule
+
+The power rule states that the derivative of x raised to the power of n is n times x raised to the power of n-1.
+
+<BlockMath math="\frac{d}{dx}(x^n) = nx^{n-1}"/>
+
+### 4. Sum Rule
+
+The sum rule states that the derivative of the sum of two functions is the sum of the derivatives of the two functions.
+
+<BlockMath math="\frac{d}{dx}[f(x) + g(x)] = \frac{d}{dx}(f(x)) + \frac{d}{dx}(g(x))"/>
+
+### 5. Difference Rule
+
+The difference rule states that the derivative of the difference of two functions is the difference of the derivatives of the two functions.
+
+<BlockMath math="\frac{d}{dx}[f(x) - g(x)] = \frac{d}{dx}(f(x)) - \frac{d}{dx}(g(x))"/>
+
+### 6. Product Rule
+
+The product rule states that the derivative of the product of two functions is the derivative of the first function times the second function plus the first function times the derivative of the second function.
+
+<BlockMath math="\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)"/>
+
+### 7. Quotient Rule
+
+The quotient rule states that the derivative of the quotient of two functions is the derivative of the numerator times the denominator minus the numerator times the derivative of the denominator, all divided by the square of the denominator.
+
+<BlockMath math="\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{(g(x))^2}"/>
+
+### 8. Chain Rule
+
+The chain rule states that the derivative of a composite function is the derivative of the outer function evaluated at the inner function times the derivative of the inner function.
+
+<BlockMath math="\frac{d}{dx}f[g(x))] = f'[g(x)]g'(x)"/>
+
+# Chain Rule
+
+The chain rule is a fundamental concept in calculus that deserves special attention, particularly due to its crucial role in machine learning and neural networks. Let's explore why it's so important and how it works.
+
+What is the Chain Rule?
+
+The chain rule allows us to calculate the derivatives of composite functions. A composite function is a function that is made up of two or more functions, one inside the other.
+
+Why is it Important?
+
+The chain rule is the foundation of backpropagation, a key algorithm in training neural networks. To calculate the error of a model, we need to find the derivative of the loss function (error function) with respect to the model's weights. We then use these derivatives to update the weights and reduce the error. All this is dependent on the chain rule.
+We will learn about loss functions and neural networks in the upcoming chapters, but for now, let's build a strong foundation on the chain rule.
+
+How Does it Work?
+
+Let's look at an example to understand the chain rule:
+Suppose we have a function <InlineMath math="f(x) = (x^2 + 1)^3" />. We can break this function into two parts:
+
+<InlineMath math="g(x) = x^2 + 1" /> (inner function)
+
+<InlineMath math="h(x) = x^3" /> (outer function)
+
+Now, we can rewrite <InlineMath math="f(x)" /> as a composite function: <InlineMath math="f(x) = h(g(x))" />
+The chain rule states that the derivative of a composite function is:
+
+The derivative of the outer function evaluated at the inner function,
+Multiplied by the derivative of the inner function.
+
+Mathematically, this is expressed as:
+<BlockMath math="f'(x) = h'(g(x)) \cdot g'(x)" />
+Applying this to our example:
+
+
+<InlineMath math="h'(x) = 3x^2" />
+
+
+<InlineMath math="g'(x) = 2x" />
+
+
+Therefore, the derivative of <InlineMath math="f(x) = (x^2 + 1)^3" /> is:
+<BlockMath math="\frac{d}{dx}[(x^2 + 1)^3] = 3(x^2 + 1)^2 \cdot 2x = 6x(x^2 + 1)^2" />
+Another Application of the Chain Rule
+The chain rule is also useful when you want to calculate the derivative of a function f with respect to x <InlineMath math="\left(\frac{df}{dx}\right)" />, but you only know:
+
+How f changes with respect to another variable y <InlineMath math="\left(\frac{df}{dy}\right)" />
+How y changes with respect to x <InlineMath math="\left(\frac{dy}{dx}\right)" />
+
+In this case, the chain rule gives us:
+<BlockMath math="\frac{df}{dx} = \frac{df}{dy} \cdot \frac{dy}{dx}" />
+
+This form of the chain rule is particularly useful in complex scenarios where direct differentiation is difficult.
+
+In the upcoming chapters, we'll explore how the chain rule is applied in the context of loss functions and neural networks, building on this fundamental understanding.
+
+<PlayButton graphicId="ChainRuleGraphic"/>
+
+# Partial Derivatives
+
+In the previous sections, we discussed derivatives of functions with respect to a single variable. However, in many real-world scenarios, functions depend on multiple variables. In such cases, we use partial derivatives to calculate how the function changes with respect to each variable independently.
+
+The standard notation for a partial derivative is <InlineMath math="\frac{\partial f}{\partial x}" />, where <InlineMath math="f" /> is the function and <InlineMath math="x" /> is the variable with respect to which we are differentiating. The partial symbol is different from the 
+is different from the standard derivative symbol <InlineMath math="\frac{d}{dx}" /> to indicate that we are taking the derivative with respect to only one variable.
+
+Again to re-emphasize the difference between Chain Rule and Partial derivatives, Chain Rule is used to find the derivative of a composite function, whereas Partial Derivatives are used to find the derivative of a function with respect to a single variable in a multi-variable function.
+
+Let's look at an example to understand partial derivatives better:
+
+Suppose we have a function <InlineMath math="f(x, y) = x^2 + 2y" />. We can calculate the partial derivatives of <InlineMath math="f" /> with respect to <InlineMath math="x" /> and <InlineMath math="y" /> as follows:
+
+Partial derivative of <InlineMath math="f" /> with respect to <InlineMath math="x" />:
+
+<BlockMath math="\frac{\partial f}{\partial x} = \frac{\partial}{\partial x}(x^2 + 2y) = 2x" />
+
+Partial derivative of <InlineMath math="f" /> with respect to <InlineMath math="y" />:
+
+<BlockMath math="\frac{\partial f}{\partial y} = \frac{\partial}{\partial y}(x^2 + 2y) = 2" />
+
+Partial derivatives are essential in optimization problems, such as gradient descent, where we need to find the minimum or maximum of a function with respect to multiple variables.
+
+In the upcoming chapters, we'll explore how partial derivatives are used in optimization algorithms and machine learning models.
+
+<PlayButton graphicId="PartialDerivativeGraphic" />
